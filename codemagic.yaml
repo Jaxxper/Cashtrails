@@ -3,7 +3,7 @@ workflows:
     name: Build Android App
     environment:
       vars:
-        JAVA_HOME: /opt/android/sdk/java/openjdk17
+        JAVA_HOME: /opt/android/sdk/java/openjdk11
     scripts:
       - name: Build APK
         script: |
