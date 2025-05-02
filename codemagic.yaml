@@ -4,10 +4,9 @@ workflows:
     environment:
       java: 17
     scripts:
-      - name: Make gradlew executable
-        script: |
-          chmod +x gradlew
+      - name: Fix gradlew permissions
+        script: chmod +x gradlew
       - name: Build APK
         script: ./gradlew assembleDebug
     artifacts:
-      - build/app/outputs/**/*.apk
+      - build/**/outputs/**/*.apk
