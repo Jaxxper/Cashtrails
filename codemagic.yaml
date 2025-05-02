@@ -1,12 +1,14 @@
 workflows:
   android-build:
     name: Build Android App
+    max_build_duration: 60
     environment:
+      android: true
       java: 17
     scripts:
-      - name: Fix gradlew permissions
-        script: chmod +x gradlew
+      - name: Set Gradlew Permission
+        script: chmod +x ./gradlew
       - name: Build APK
         script: ./gradlew assembleDebug
     artifacts:
-      - build/**/outputs/**/*.apk
+      - app/build/outputs/**/*.apk
