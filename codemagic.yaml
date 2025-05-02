@@ -1,11 +1,14 @@
 workflows:
   android-build:
     name: Build Android App
+    max_build_duration: 60
     environment:
-  vars:
-    JAVA_HOME: /opt/android/sdk/java/openjdk17
+      vars:
+        JAVA_HOME: /opt/android/sdk/java/openjdk17
     scripts:
-      - chmod +x ./gradlew
-      - ./gradlew assembleDebug
+      - name: Build with Gradle
+        script: |
+          chmod +x ./gradlew
+          ./gradlew assembleDebug
     artifacts:
-      - app/build/outputs/**/*.apk
+      - build/app/outputs/**/*.apk
