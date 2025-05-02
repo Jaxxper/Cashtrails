@@ -1,0 +1,9 @@
+workflows:
+  android-build:
+    name: Build Android App
+    environment:
+      sdk: 31
+    scripts:
+      - ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/**/*.apk
