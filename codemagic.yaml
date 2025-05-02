@@ -2,8 +2,8 @@ workflows:
   android-build:
     name: Build Android App
     environment:
-      vars:
-        JAVA_HOME: /opt/android/sdk
+  vars:
+    JAVA_HOME: /opt/android/sdk/java/openjdk17
     scripts:
       - chmod +x ./gradlew
       - ./gradlew assembleDebug
