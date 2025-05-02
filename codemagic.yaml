@@ -1,13 +1,18 @@
 workflows:
   android-build:
-    name: Build Android APK
-    max_build_duration: 60
+    name: Android APK Build
     environment:
-      java: 17
+      sdk: "33"
+      java: "17"
     scripts:
-      - name: Make Gradle executable
+      - name: Make gradlew executable
         script: chmod +x ./gradlew
-      - name: Build APK
+      - name: Clean build
+        script: ./gradlew clean
+      - name: Assemble debug APK
         script: ./gradlew assembleDebug
     artifacts:
-      - build/**/*.apk
+      - build/app/outputs/**/*.apk
+    cache:
+      cache_paths:
+        - ~/.gradle
