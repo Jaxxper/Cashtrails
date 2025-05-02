@@ -3,7 +3,6 @@ workflows:
     name: Build Android App
     environment:
       android:
-        image: android-31
     scripts:
       - ./gradlew assembleDebug
     artifacts:
