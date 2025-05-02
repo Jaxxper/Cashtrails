@@ -2,12 +2,11 @@ workflows:
   android-build:
     name: Build Android App
     environment:
-      vars:
-        JAVA_HOME: /opt/android/sdk/java/openjdk11
+      java: 17
     scripts:
+      - name: Set up permissions
+        script: chmod +x ./gradlew
       - name: Build APK
-        script: |
-          chmod +x ./gradlew
-          ./gradlew assembleDebug
+        script: ./gradlew assembleDebug
     artifacts:
       - build/app/outputs/**/*.apk
