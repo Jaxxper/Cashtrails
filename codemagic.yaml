@@ -2,7 +2,6 @@ workflows:
   android-build:
     name: Build Android App
     environment:
-      android:
     scripts:
       - ./gradlew assembleDebug
     artifacts:
